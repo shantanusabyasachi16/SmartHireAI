@@ -1,34 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Outlet,Navigate,Route,Routes,useLocations} from "react-router-dom"
 
+import { Footer, Navbar } from "./componentss"
+import { Router } from "express";
+
+function Layout()
+{
+  const user= true;
+  const locations= useLocations()
+  return user ?<Outlet/> : <Navigate to='user-auth ' state={{from: locations}}/>
+}
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+  <main>
+ <Navbar/>
+<Routes>
+
+<Route element={<Layout/>}>
+
+<Route path="/"element={<Navigate to='/find-jobs' replace={true}/>}/>
+
+<Route path="/find-jobs" element={<Findjobs/>}/>
+<Route path="/Companies" element={<Companies/>}/>
+
+<Route
+ path={
+  user?.user?.accountType==="seeker"
+  ?"/user-profile"
+  :"/user-profile/:id"
+
+ } element ={<USerProfile/>}
+/>
+
+<Route path={"/company-profile"} element={<CompanyProfile/>}/>
+<Route path={"/company-profile/:id"} element={<CompanyProfile/>}/>
+<Route path={"/upload-job"} element={<Uploadjob/>}/>
+<Route path={"/job-detail/:id"} element={<JobDetail/>}/>
+
+</Route>
+
+<Route path="/about-us" element={<About/>}/>
+<Route path="/user-auth" element={<Authpage/>}/>
+
+</Routes>
+
+
+{/*if user is login it should show the footer*/}
+ {user && <Footer/>}
+
+  </main>
   )
 }
 
