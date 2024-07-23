@@ -10,15 +10,16 @@ import {
   Uploadjob, 
   UserProfile 
 } from "./pages";
+import { useSelector } from "react-redux";
 
 function Layout() {
-  const user = true; 
+  const {user} =  useSelector((state)=> state.user)
   const location = useLocation();
   return user ? <Outlet /> : <Navigate to="/user-auth" state={{ from: location }} />;
 }
 
 function App() {
-  const user = {}; // Replace with actual user logic
+  const {user} =  useSelector((state)=> state.user)
 
   return (
     <main>
