@@ -20,29 +20,31 @@ const handlecloseNavbar=()=>{
 }
 
 
-  return (
-    <header className="sticky top-0 z-50 w-full bg-background shadow-sm">
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-        <Link to="/" className="flex items-center gap-2">
-          <BriefcaseIcon className="h-6 w-6" />
-          <span className="text-2xl font-extrabold transition duration-300">
-  <span className="text-blue-500 hover:text-blue-700">Talent</span>
-  <span className="text-blue-400 hover:text-blue-700">Link</span>
-</span>
+return (
+  <header className="sticky top-0 z-50 w-full bg-background shadow-sm">
+    <div className="w-full flex h-16 items-center justify-between bg-white px-4 md:px-6">
+      <Link to="/" className="flex items-center gap-2">
+        <BriefcaseIcon className="h-6 w-6 text-muted-foreground  " />
+        <span className="text-2xl font-extrabold transition duration-300">
+          <span className="text-green-500 hover:text-green-700">Talent</span>
+          <span className="text-green-400 hover:text-green-700">Link</span>
+        </span>
+
 
 
         </Link>
         <nav className="hidden items-center gap-20 md:flex">
-          <Link to="/find-job" className="text-sm font-medium transition-colors hover:text-primary">
-            Find Job
-          </Link>
-          <Link to="/companies" className="text-sm font-medium transition-colors hover:text-primary">
+        <Link to="/find-job" className="text-sm text-black font-medium transition-colors hover:text-green-500">
+          Find Job
+         </Link>
+
+          <Link to="/companies" className="text-sm text-black font-medium transition-colors hover:text-green-500">
             Companies
           </Link>
-          <Link to="/upload-job" className="text-sm font-medium transition-colors hover:text-primary">
+          <Link to="/upload-job" className="text-sm text-black font-medium transition-colors hover:text-green-500">
             Upload Job
           </Link>
-          <Link to="/about" className="text-sm font-medium transition-colors hover:text-primary">
+          <Link to="/about" className="text-sm text-black font-medium transition-colors hover:text-green-500">
             About
           </Link>
         </nav>
