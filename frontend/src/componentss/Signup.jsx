@@ -57,7 +57,7 @@ const Signup = ({ open, setOpen }) => {
               <Input
                 id="email"
                 type="email"
-                placeholder="email@example.com"
+                placeholder="Email"
                 {...register("email", { required: "Email Address is required!" })}
                 error={errors.email ? errors.email.message : ""}
               />
@@ -127,7 +127,7 @@ const Signup = ({ open, setOpen }) => {
                     <Input
                       id="cPassword"
                       type="password"
-                      placeholder="Password"
+                      placeholder="Confirm Password"
                       {...register("cPassword", {
                         validate: (value) =>
                           value === getValues("password") || "Passwords do not match",

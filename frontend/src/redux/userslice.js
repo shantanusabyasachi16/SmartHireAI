@@ -1,9 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit'
-import { dispatch } from './store';
+
 
 
 const initialState = {
-    user: {}//JSON.parse(window?.localStorage.getItem('userInfo'))?? user[0]
+    user: JSON.parse(window?.localStorage.getItem('userInfo'))??{} ////// user[0] changes
 }
 const userslice= createSlice({
     name:"userInfo",

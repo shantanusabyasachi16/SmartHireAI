@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
 import { Signup } from '@/componentss'
 
 function Auth() {
-  const { user } = useSelector(state => state.user);
+  const { user } = useSelector((state) => state.user);
   const [open, setOpen] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
