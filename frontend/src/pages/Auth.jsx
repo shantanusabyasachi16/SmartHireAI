@@ -1,21 +1,20 @@
-import { useNavigate } from 'react-router-dom';
-import { Office } from '@/assets';
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { Office } from '@/assets';
 import { Signup } from '@/componentss'
 
 function Auth() {
   const { user } = useSelector((state) => state.user);
   const [open, setOpen] = useState(true);
   const location = useLocation();
-  const navigate = useNavigate();
+
   
-  let form = location?.state?.from?.pathname || "/";
+  let from = location?.state?.from?.pathname || "/";
 
   if (user.token) {
-    navigate(form, { replace: true });
-    return null; 
+    return window.location.replace(from);
   }
 
   return (

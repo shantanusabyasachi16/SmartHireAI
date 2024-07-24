@@ -5,18 +5,18 @@ export default function Footer() {
     <footer className="relative bg-muted py-12 md:py-16 lg:py-20">
       <div className="container w-full mx-auto flex max-w-5xl flex-col items-center justify-between gap-8 px-4 md:flex-row">
         <div className="flex flex-col items-center gap-4 md:items-start">
-          <Link href="#" className="flex items-center gap-2" prefetch={false}>
+          <Link href="#" className="flex items-center gap-2" >
             <MountainIcon className="h-6 w-6" />
             <span className="sr-only">Acme Inc</span>
           </Link>
           <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground md:justify-start">
-            <Link href="#" className="hover:underline hover:underline-offset-4" prefetch={false}>
+            <Link href="#" className="hover:underline hover:underline-offset-4" >
               Privacy
             </Link>
-            <Link href="#" className="hover:underline hover:underline-offset-4" prefetch={false}>
+            <Link href="#" className="hover:underline hover:underline-offset-4">
               Terms
             </Link>
-            <Link href="#" className="hover:underline hover:underline-offset-4" prefetch={false}>
+            <Link href="#" className="hover:underline hover:underline-offset-4" >
               Cookies
             </Link>
           </div>
@@ -25,43 +25,43 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3">
             <div className="grid gap-2">
               <h4 className="text-sm font-medium">Company</h4>
-              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " prefetch={false}>
+              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " >
                Home
               </Link>
-              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " prefetch={false}>
+              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " >
                 About Us
               </Link>
-              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " prefetch={false}>
+              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " >
                 Services
               </Link>
-              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " prefetch={false}>
+              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " >
                Our Team
               </Link>
             </div>
             <div className="grid gap-2">
               <h4 className="text-sm font-medium">Policy</h4>
-              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " prefetch={false}>
+              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " >
                 Polices
               </Link>
-              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " prefetch={false}>
+              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " >
                Contact
               </Link>
-              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " prefetch={false}>
+              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " >
                Faq
               </Link>
             </div>
             <div className="grid gap-2">
               <h4 className="text-sm font-medium">Support</h4>
-              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " prefetch={false}>
+              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " >
                 Acconut
               </Link>
-              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 s" prefetch={false}>
+              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 s" >
                 Support Center
               </Link>
-              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " prefetch={false}>
+              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " >
                 Feedback
               </Link>
-              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " prefetch={false}>
+              <Link href="#" className="text-sm font-medium text-white-500 hover:text-green-500 " >
               Accessibility
               </Link>
             </div>
@@ -69,19 +69,19 @@ export default function Footer() {
           
           <div className="flex items-center gap-4">
             <h4 className="text-sm font-medium">Contact Us </h4>
-            <Link href="#" className="text-muted-foreground hover:text-foreground" prefetch={false}>
+            <Link href="#" className="text-muted-foreground hover:text-foreground">
               <InstagramIcon className="h-5 w-5" />
               <span className="sr-only">Instagram</span>
             </Link>
-            <Link href="#" className="text-muted-foreground hover:text-foreground" prefetch={false}>
+            <Link href="#" className="text-muted-foreground hover:text-foreground" >
               <FacebookIcon className="h-5 w-5" />
               <span className="sr-only">Facebook</span>
             </Link>
-            <Link href="#" className="text-muted-foreground hover:text-foreground" prefetch={false}>
+            <Link href="#" className="text-muted-foreground hover:text-foreground" >
               <LinkedinIcon className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
             </Link>
-            <Link href="#" className="text-muted-foreground hover:text-foreground" prefetch={false}>
+            <Link href="#" className="text-muted-foreground hover:text-foreground" >
               <TwitterIcon className="h-5 w-5" />
               <span className="sr-only">Twitter</span>
             </Link>

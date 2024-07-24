@@ -13,25 +13,32 @@ import {
 import { useSelector } from "react-redux";
 
 function Layout() {
+
   const {user} =  useSelector((state)=> state.user)
+
   const location = useLocation();
-  return user ? <Outlet /> : <Navigate to="/user-auth" state={{ from: location }} />;
+
+  return user?.token ? (
+    <Outlet />
+  ) : (
+    <Navigate to='/user-auth' state={{ from: location }} replace />
+  );
 }
 
 function App() {
   const {user} =  useSelector((state)=> state.user)
 
   return (
-    <main>
+    <main className='bg-[#f7fdfd]'>
       <Navbar />
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<Navigate to="/find-jobs" replace />} />
+          <Route path="/" element={<Navigate to="/find-jobs" replace={true} />} />
           <Route path="/find-jobs" element={<Findjobs />} />
           <Route path="/companies" element={<Companies />} />
           <Route
             path={
-              user?.accountType === "seeker"
+              user?.user?.accountType === "seeker"
                 ? "/user-profile"
                 : "/user-profile/:id"
             }

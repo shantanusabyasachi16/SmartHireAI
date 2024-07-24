@@ -10,7 +10,7 @@ import { rootReducer } from "./reducer";
     })
 
     const {dispatch} = store;
-    const useSelector= ()=>useAppSelector();
+    const useSelector=()=> useAppSelector();
     const  useDispatch =()=> useAppDispatch()
 
     export {store,dispatch,useDispatch,useSelector}

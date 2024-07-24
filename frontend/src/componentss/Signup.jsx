@@ -21,6 +21,8 @@ const Signup = ({ open, setOpen }) => {
     getValues,
     formState: { errors },
   } = useForm({ mode: "onChange" });
+  
+
 
   const onSubmit = () => {};
 
