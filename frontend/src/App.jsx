@@ -42,8 +42,8 @@ function App() {
           <Route path="/upload-job" element={<Uploadjob />} />
           <Route path="/job-detail/:id" element={<JobDetail />} />
         </Route>
-        <Route path="/about-us" element={<About />} />
-        <Route path="/user-auth" element={<Auth />} />
+        <Route path="/about-us" element={<About/>} />
+        <Route path="/user-auth" element={<Auth/>} />
       </Routes>
       {user && <Footer />}
     </main>
