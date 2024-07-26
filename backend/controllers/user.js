@@ -1,6 +1,6 @@
 import { User } from "../models/user.model";
-const bcrypt = require ("bcrypt");
-const jwt = require ('jsonwebtoken');
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 
 //register

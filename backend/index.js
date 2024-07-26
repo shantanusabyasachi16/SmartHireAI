@@ -1,8 +1,9 @@
-const express = require ('express');
-const cookieparser = require ('cookie-parser')
-const cors = require ('cors');
-const dotenv = require('dotenv');
-const connectDB = require('./utils/db');
+import express from('express');
+import cookieparser from "cookie-parser";
+import cors from ('cors');
+import dotenv from('dotenv');
+import connectDB from('./utils/db.js');
+import userRoute from('./routes/user.routes.js');
 dotenv.config({});
 const app = express();
 
@@ -23,7 +24,10 @@ app.use(cors(corsOptions));
 const PORT = process.env.PORT || 3000;
 
 
+//api=
 
+//user route
+app.use("/api/v1/user",userRoute )
 
 
 
