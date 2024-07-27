@@ -8,7 +8,7 @@ const router = express.Router();
 
 
 router.route("/register").post(authenticated,registerCompany);
-router.route("/get").post(authenticated,getCompany);
+router.route("/get").get(authenticated,getCompany);
 router.route("/get/:id").get(authenticated,getCompanyById);
 router.route("/update/:id").put(authenticated,updateCompany);
 

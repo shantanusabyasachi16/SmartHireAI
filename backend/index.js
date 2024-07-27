@@ -29,7 +29,7 @@ const PORT = process.env.PORT || 3000;
 
 //user route
 app.use("/api/v1/user",userRoute )
-app.use("/api/v1/user",companyRoute)
+app.use("/api/v1/company",companyRoute)
 
 
 
