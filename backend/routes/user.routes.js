@@ -8,7 +8,7 @@ const router = express.Router();
 
 
 router.route("/register").post(singleUpload,register);
-router.route("/login").post(singleUpload,login);
+router.route("/login").post(login);
 router.route("/profile/update").post(authenticated,updateProfile);
 router.route("/logout").get(logout);
 
