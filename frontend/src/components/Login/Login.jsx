@@ -9,7 +9,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setLoading } from "@/redux/authSlice";
+import { setLoading, setUser } from "@/redux/authSlice";
 import { Loader2 } from "lucide-react";
 
 const Login = () => {
@@ -39,6 +39,7 @@ const {loading} =useSelector(store=>store.auth);
       console.log(res.data.success);
 
       if (res.data.success) {
+        dispatch(setUser(res.data.user))//it will set the data
         navigate("/");
         toast.success(res.data.message);
       }
