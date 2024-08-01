@@ -20,7 +20,7 @@ const Navbar = () => {
           <ul className="flex font-medium items-center gap-10">
          <li><Link to="/">Home</Link></li>
          <li><Link to="/jobs">Jobs</Link></li>
-         <li><Link to="/browse">Explore</Link></li>
+         <li><Link to="/explore">Explore</Link></li>
          
           </ul>
           {!user ? (
