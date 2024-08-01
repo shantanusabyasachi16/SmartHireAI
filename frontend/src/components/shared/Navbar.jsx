@@ -62,7 +62,7 @@ const Navbar = () => {
                 </div>
                 <div className="flex items-center my-2 gap-2 cursor-pointer">
                   <User2 />
-                  <Button variant="link">Profile</Button>
+                  <Button variant="link"> <Link to="/profile">Profile</Link></Button>
                 </div>
                 <div className="flex items-center gap-2 cursor-pointer">
                   <LogOut />
