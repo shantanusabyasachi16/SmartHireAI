@@ -12,8 +12,8 @@ const Home = () => {
      <Navbar/>
      <HeroSection/>
      <CategoryCarousel/>
-      {/*<Latestjobs/>
-     <Footer/>*/}
+    <Latestjobs/>
+     <Footer/>
     </div>
   )
 }
