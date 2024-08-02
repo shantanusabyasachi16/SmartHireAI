@@ -7,7 +7,9 @@ import { Contact, Mail, Pen } from "lucide-react";
 import React, { useState } from "react";
 import AppliedJobTable from "./AppliedJobTable";
 import UpdateProfile from "./UpdateProfile";
-const Skilss = ["java", "javascript", "python"];
+
+const Skills = ["java", "javascript", "python","DevOps"];
+
 const isresume = true;
 const Profile = () => {
   const [open, setopen] = useState(false)
@@ -40,14 +42,15 @@ const Profile = () => {
           </div>
         </div>
         <div className="my-5">
-          <h1>Skilss</h1>
-          <div className=" flex items-center gap-3 my-2">
-            {Skilss.length != 0 ? (
-              Skilss.map((item, index) => <Badge key={index}>item</Badge>)
-            ) : (
-              <span>NA</span>
-            )}
-          </div>
+        <h1>Skills</h1>
+<div className="flex items-center gap-3 my-2">
+  {Skills.length !== 0 ? (
+    Skills.map((item, index) => <Badge key={index}>{item}</Badge>)
+  ) : (
+    <span>NA</span>
+  )}
+</div>
+
         </div>
         <div className="grid w-full max-w-sm items-center gap-1.5">
           <Label className="text-md font-bold">Resume</Label>
