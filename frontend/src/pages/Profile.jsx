@@ -7,12 +7,14 @@ import { Contact, Mail, Pen } from "lucide-react";
 import React, { useState } from "react";
 import AppliedJobTable from "./AppliedJobTable";
 import UpdateProfile from "./UpdateProfile";
+import { useSelector } from "react-redux";
 
-const Skills = ["java", "javascript", "python","DevOps"];
+//const Skills = ["java", "javascript", "python","DevOps"];
 
 const isresume = true;
 const Profile = () => {
-  const [open, setopen] = useState(false)
+  const [open, setopen] = useState(false);
+  const {user} = useSelector(store=>store.auth);
   return (
     <div>
       <Navbar />
@@ -23,8 +25,8 @@ const Profile = () => {
               <AvatarImage src="https://i.pinimg.com/originals/09/2f/7b/092f7b121aaabf4449aee3555b0f26a2.png" />
             </Avatar>
             <div>
-              <h1 className="font-medium text-xl">Full Name</h1>
-              <p>Add your bio</p>
+              <h1 className="font-medium text-xl"> {user?.fullname}</h1>
+              <p>{user?.profile?.bio}</p>
             </div>
           </div>
           <Button onClick={()=>setopen(true)} className="text-right" variant="outline">
@@ -34,21 +36,19 @@ const Profile = () => {
         <div className="my-5">
           <div className="flex items-center gap-4 my-2">
             <Mail />
-            <span>shantanu@gmail.com</span>
+            <span>{user?.email}</span>
           </div>
           <div className="flex items-center gap-4 my-2">
             <Contact />
-            <span>987654390897</span>
+            <span>{user?.phonenumber}</span>
           </div>
         </div>
         <div className="my-5">
         <h1>Skills</h1>
 <div className="flex items-center gap-3 my-2">
-  {Skills.length !== 0 ? (
-    Skills.map((item, index) => <Badge key={index}>{item}</Badge>)
-  ) : (
-    <span>NA</span>
-  )}
+   {
+  user?.profile?.skills.length !== 0 ? user?.profile?.skills.map((item, index) => <Badge key={index}>{item}</Badge>) : <span>NA</span>
+   }
 </div>
 
         </div>
@@ -57,10 +57,10 @@ const Profile = () => {
           {isresume ? (
             <a
               target="blank"
-              href="https://github.com/shantanusabyasachi16"
+              href={user?.profile?.resume}
               className="font-medium text-blue-500 hover:text-blue-800 cursor-pointer"
             >
-              ShantanuGithub
+             {user?.profile?.resumeOriginalName}
             </a>
           ) : (
             <span>Na</span>
