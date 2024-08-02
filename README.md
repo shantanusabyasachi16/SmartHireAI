@@ -1,1 +1,1 @@
-# Talent-Link-with-AI
+# SmartHireAI
