@@ -55,6 +55,7 @@ const UpdateProfile = ({ open, setopen }) => {
       formdata.append("file", input.file);
     }
     try {
+      setloading(true);
       const res = await axios.post(
         `${USER_API_END_POINT}/profile/update`,
         formdata,
@@ -69,6 +70,8 @@ const UpdateProfile = ({ open, setopen }) => {
       }
     } catch (error) {
       toast.error(error.response.data.message);
+    } finally{
+      setloading(false);
     }
     setopen(false); // the state should close after the update
     console.log(input);
@@ -172,16 +175,9 @@ const UpdateProfile = ({ open, setopen }) => {
               </div>
             </div>
             <DialogFooter>
-              {loading ? (
-                <Button className="w-full my-4">
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Please wait
-                </Button>
-              ) : (
-                <Button type="submit" className="w-full my-4">
-                  Update
-                </Button>
-              )}
+            {
+              loading ? <Button className="w-full my-4"> <Loader2 className='mr-2 h-4 w-4 animate-spin' /> Please wait </Button> : <Button type="submit" className="w-full my-4">Update</Button>
+            }
             </DialogFooter>
           </form>
         </DialogContent>
