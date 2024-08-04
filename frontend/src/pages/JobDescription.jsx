@@ -3,16 +3,23 @@ import { Button } from "@/components/ui/button";
 import { setsingleJob } from "@/redux/jobSlice";
 import { JOB_API_END_POINT } from "@/utils/endpoint";
 import axios from "axios";
+
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 const JobDescription = () => {
-  const isapplied = true;
-  const params = useParams();
-  const jobId = params.id;
   const {singleJob}= useSelector(store=>store.job);
   const {user} = useSelector(store=>store.auth)
+  //to find the exact applicant who has applied for the job
+  const isapplied = singleJob?.applications?.some(application=>application.applicant ==user?._id)|| false;
+
+
+
+
+  const params = useParams();
+  const jobId = params.id;
+ 
   const dispatch= useDispatch();
   useEffect(()=>{
 const fetchSinglejob = async()=>{
