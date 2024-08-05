@@ -2,14 +2,17 @@ import Navbar from "@/components/shared/Navbar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { setsingleCompany } from "@/redux/company.Slice";
 import { COMPANY_API_END_POINT } from "@/utils/endpoint";
 import axios from "axios";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const CreateCompany = () => {
   const [companyName, setcompanyName] = useState();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const registerNewCompany = async () => {
     try {
@@ -18,9 +21,10 @@ const CreateCompany = () => {
         withCredentials: true,
       } );
       if(res.data.success){
+        dispatch(setsingleCompany(res.data.company))
         toast.success(res.data.message);
-        const id= 
-        navigate("/admin/companies/:id")
+        const CompanyId = res?.data?.message?.company?._id
+        navigate(`/admin/companies/${CompanyId}}`)
 
       }
     } catch (error) {
