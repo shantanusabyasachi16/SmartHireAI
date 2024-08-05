@@ -1,5 +1,5 @@
 import {  createBrowserRouter, RouterProvider } from "react-router-dom"
-import Navbar from "./components/shared/Navbar"
+
 
 import Signup from "./components/Login/Signup"
 import Home from "./pages/Home"
@@ -8,6 +8,8 @@ import Jobs from "./pages/Jobs"
 import Explore from "./pages/Explore"
 import Profile from "./pages/Profile"
 import JobDescription from "./pages/JobDescription"
+import Companies from "./adminPages/Companies"
+import CreateCompany from "./adminPages/CreateCompany"
 
 
 const appRouter= createBrowserRouter([
@@ -38,6 +40,15 @@ const appRouter= createBrowserRouter([
   {
     path:"/profile",
     element:<Profile/>
+  },
+  //for admin routes
+  {
+    path:"/admin/companies",
+    element:<Companies/>
+  },
+  {
+    path:"/admin/companies/create",
+    element:<CreateCompany/>
   },
   
 ])
