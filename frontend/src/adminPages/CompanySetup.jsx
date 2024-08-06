@@ -5,7 +5,8 @@ import { Label } from "@/components/ui/label";
 import { COMPANY_API_END_POINT } from "@/utils/endpoint";
 import axios from "axios";
 import { ArrowBigLeft, Loader2 } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -17,6 +18,7 @@ const CompanySetup = () => {
     location:"",
     file:null,
   });
+  const {singleCompany} = useSelector(store=>store.company); //initialmstate= null
   const [loading,setloading]= useState(false);
   const params= useParams();
   const navigate = useNavigate();
@@ -60,6 +62,16 @@ const CompanySetup = () => {
     }
    
   }
+  useEffect(()=>{
+    setinput({
+      name: singleCompany.name ||"",
+    description: singleCompany.description ||"",
+    website: singleCompany.website ||"",
+    location: singleCompany.location ||"",
+    file:singleCompany.file ||"",
+
+    })
+  },[singleCompany])
 
   return (
     <div>
