@@ -13,7 +13,7 @@ export const registerCompany = async (req,res) => {
     if (company) {
       return res.status(400).json({
         message: "You can't register same company",
-        succes: false,
+        success: false,
       });
     }
     company = await Company.create({
