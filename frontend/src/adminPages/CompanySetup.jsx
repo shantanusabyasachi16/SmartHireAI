@@ -36,7 +36,7 @@ const CompanySetup = () => {
     formdata.append("name",input.name)
     formdata.append("description",input.description)
     formdata.append("website",input.website)
-    formdata.append("loaction",input.location)
+    formdata.append("location",input.location)
     if (input.file) {
       formdata.append("file",input.file)
     }
