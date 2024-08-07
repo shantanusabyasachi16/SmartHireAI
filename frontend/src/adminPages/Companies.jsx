@@ -1,14 +1,22 @@
 import Navbar from '@/components/shared/Navbar'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CompaniesTable from './CompaniesTable'
 import { useNavigate } from 'react-router-dom'
 import useGetAllCompnaies from '@/hooks/useGetAllCompnaies'
+import { useDispatch } from 'react-redux'
+import { setsearchCompanyByText } from '@/redux/company.Slice'
 
 const Companies = () => {
   useGetAllCompnaies()
+  const [input,setinput]  = useState("");
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  useEffect(()=>{
+ dispatch(setsearchCompanyByText(input))
+  },[input])
   return (
     
     <div>

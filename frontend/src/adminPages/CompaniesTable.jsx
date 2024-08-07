@@ -15,11 +15,15 @@ import {
 } from "@/components/ui/table";
 
 import { Edit2, MoreHorizontal } from "lucide-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const CompaniesTable = () => {
-  const { companies } = useSelector((store) => store.company);
+  const { companies, searchCompanyByText } = useSelector((store) => store.company);
+  const [filterCompany,setfilterCompany]= useState(companies)
+  useEffect(()=>{
+
+  },[companies,searchCompanyByText])//when any thing in one of these will change the useffect will be called
   return (
     <div>
       <Table>
