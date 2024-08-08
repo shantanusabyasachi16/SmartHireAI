@@ -2,6 +2,7 @@ import Navbar from "@/components/shared/Navbar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import useCompanybyId from "@/hooks/useCompanybyId";
 import { COMPANY_API_END_POINT } from "@/utils/endpoint";
 import axios from "axios";
 import { ArrowBigLeft, Loader2 } from "lucide-react";
@@ -11,6 +12,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "sonner";
 
 const CompanySetup = () => {
+  const params= useParams();
+  useCompanybyId(params.id)
   const [input,setinput]= useState({
     name:"",
     description:"",
@@ -20,7 +23,7 @@ const CompanySetup = () => {
   });
   const {singleCompany} = useSelector(store=>store.company); //initialmstate= null
   const [loading,setloading]= useState(false);
-  const params= useParams();
+
   const navigate = useNavigate();
   const changeEvent =(e)=>{
     setinput({...input,[e.target.name]:e.target.value});
