@@ -15,7 +15,7 @@ const Companies = () => {
 
   const dispatch = useDispatch();
   useEffect(()=>{
- dispatch(setsearchCompanyByText(input))
+ dispatch(setsearchCompanyByText(input));
   },[input])
   return (
     
@@ -26,6 +26,7 @@ const Companies = () => {
           <Input
           className="w-fit"
           placeholder = "filter by name"
+          onChange={(e)=>setinput(e.target.value)}
           />
           <Button onClick={()=>navigate("/admin/companies/create")}>New Company</Button>
         </div>

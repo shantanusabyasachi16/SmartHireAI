@@ -17,13 +17,30 @@ import {
 import { Edit2, MoreHorizontal } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
+
 
 const CompaniesTable = () => {
+
   const { companies, searchCompanyByText } = useSelector((store) => store.company);
-  const [filterCompany,setfilterCompany]= useState(companies)
+  const [filterCompany,setfilterCompany]= useState(companies);
+const navigate = useNavigate();
+
   useEffect(()=>{
+ const filteredCompany = companies.length >= 0 && companies.filter((company)=>{
+if (!searchCompanyByText) {
+  return true
+};
+return company?.name?.toLowerCase().includes(searchCompanyByText.toLowerCase())
+
+ })
+ setfilterCompany(filteredCompany)
+
 
   },[companies,searchCompanyByText])//when any thing in one of these will change the useffect will be called
+  
+  
   return (
     <div>
       <Table>
@@ -41,7 +58,7 @@ const CompaniesTable = () => {
             <span>Companies Not Found</span>
           ) : (
             <>
-              {companies?.map((company) => (
+              {filterCompany?.map((company) => (
                 <tr>
                   <TableCell>
                     <Avatar>
@@ -56,7 +73,7 @@ const CompaniesTable = () => {
                         <MoreHorizontal />
                       </PopoverTrigger>
                       <PopoverContent className="w-32">
-                        <div className="flex items-center gap-2 w-fit cursor-pointer">
+                        <div onClick={()=>navigate(`/admin/companies/${company._id}`)} className="flex items-center gap-2 w-fit cursor-pointer">
                           <Edit2 />
                           <span className="w-4">Edit</span>
                         </div>
