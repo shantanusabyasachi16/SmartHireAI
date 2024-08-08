@@ -20,24 +20,22 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const AdminJobTable = () => {
-  const { companies, searchCompanyByText } = useSelector(store => store.company );
-  const {allAdminjobs} = useSelector(store=>store.job);
+  const { allAdminjobs, searchJobByText } = useSelector((store) => store.job);
   const [filterjobs, setfilterjobs] = useState(allAdminjobs);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const filteredCompany =
-    allAdminjobs.length >= 0 &&
-    allAdminjobs.filter((job) => {
-        if (!searchCompanyByText) {
-          return true;
-        }
-        return company?.name
-          ?.toLowerCase()
-          .includes(searchCompanyByText.toLowerCase());
-      });
-      setfilterjobs(filteredCompany);
-  }, [companies, searchCompanyByText]); //when any thing in one of these will change the useffect will be called
+    const filteredjobs = allAdminjobs.filter((job) => {
+      if (!searchJobByText) {
+        return true;
+      }
+      return (
+        job?.title?.toLowerCase().includes(searchJobByText.toLowerCase()) ||
+        job?.company?.name.toLowerCase().includes(searchJobByText.toLowerCase())
+      );
+    });
+    setfilterjobs(filteredjobs);
+  }, [allAdminjobs, searchJobByText]); // Filter when either `allAdminjobs` or `searchJobByText` changes
 
   return (
     <div>
@@ -53,7 +51,7 @@ const AdminJobTable = () => {
         </TableHeader>
         <TableBody>
           {filterjobs?.map((job) => (
-            <tr>
+            <TableRow key={job._id}>
               <TableCell>{job?.company?.name}</TableCell>
               <TableCell>{job?.title}</TableCell>
               <TableCell>{job?.createdAt.split("T")[0]}</TableCell>
@@ -64,9 +62,7 @@ const AdminJobTable = () => {
                   </PopoverTrigger>
                   <PopoverContent className="w-32">
                     <div
-                      onClick={() =>
-                        navigate(`/admin/companies/${job._id}`)
-                      }
+                      onClick={() => navigate(`/admin/companies/${job._id}`)}
                       className="flex items-center gap-2 w-fit cursor-pointer"
                     >
                       <Edit2 />
@@ -75,7 +71,7 @@ const AdminJobTable = () => {
                   </PopoverContent>
                 </Popover>
               </TableCell>
-            </tr>
+            </TableRow>
           ))}
         </TableBody>
       </Table>
