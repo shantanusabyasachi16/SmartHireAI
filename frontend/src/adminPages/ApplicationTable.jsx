@@ -23,6 +23,7 @@ const ApplicationTable = () => {
   const { allApplicants } = useSelector((store) => store.application);
 
   const Statushandler = async (status, id)=>{
+    console.log('Status:', status, 'ID:', id);
     try {
       axios.defaults.withCredentials= true;
       const res = await axios.post(`${APPLICATION_API_END_POINT}/status/${id}/update`,{status});
@@ -67,7 +68,7 @@ const ApplicationTable = () => {
                       {Shortlist.map((status, index) => {
                         return (
                           <div
-                          onClick={()=>Statushandler(status,item?.id)}
+                          onClick={()=>Statushandler(status,item?._id)}
                             key={index}
                             className=" flex w-fit items-center cursor-pointer"
                           >
