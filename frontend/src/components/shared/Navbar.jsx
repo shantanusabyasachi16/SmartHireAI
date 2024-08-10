@@ -14,6 +14,7 @@ const Navbar = () => {
   const { user } = useSelector((store) => store.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const logouthandler = async () => {
     try {
       const res = await axios.get(`${USER_API_END_POINT}/logout`, {
@@ -28,6 +29,7 @@ const Navbar = () => {
       toast.error(error.response.data.message);
     }
   };
+
   return (
     <div className="bg-white">
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16">
@@ -38,31 +40,33 @@ const Navbar = () => {
         </div>
         <div className="flex items-center gap-20">
           <ul className="flex font-medium items-center gap-10">
-            {user && user.role == "recruiter" ? (
-              <>
-                <li>
-                  <Link to="/admin/companies">Company</Link>
-                </li>
-                <li>
-                  <Link to="/admin/jobs">Jobs</Link>
-                </li>
-              </>
-            ) : (
-              <>
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/jobs">Jobs</Link>
-                </li>
-                <li>
-                  <Link to="/explore">Explore</Link>
-                </li>
-              </>
-            )}
+            {user ? (
+              user.role === "recruiter" ? (
+                <>
+                  <li>
+                    <Link to="/admin/companies">Company</Link>
+                  </li>
+                  <li>
+                    <Link to="/admin/jobs">Jobs</Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/">Home</Link>
+                  </li>
+                  <li>
+                    <Link to="/jobs">Jobs</Link>
+                  </li>
+                  <li>
+                    <Link to="/explore">Explore</Link>
+                  </li>
+                </>
+              )
+            ) : null}
           </ul>
           {!user ? (
-            <div className="flex  gap-2">
+            <div className="flex gap-2">
               <Link to="/login">
                 <Button variant="outline">Login</Button>
               </Link>
@@ -97,8 +101,8 @@ const Navbar = () => {
                     </p>
                   </div>
                 </div>
-                <div className=" flex flex-col my-2 text-gray-600">
-                  {user && user.role == "student" && (
+                <div className="flex flex-col my-2 text-gray-600">
+                  {user.role === "student" && (
                     <div className="flex items-center my-2 gap-2 cursor-pointer">
                       <User2 />
                       <Button variant="link">
