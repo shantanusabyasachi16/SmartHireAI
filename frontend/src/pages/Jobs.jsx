@@ -3,7 +3,7 @@ import React from "react";
 import FilterCards from "./FilterCards";
 import Jobsss from "./Jobsss";
 import { useSelector } from "react-redux";
-import store from "@/redux/store";
+import {motion} from "framer-motion"
 
 const jobsArray = [1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -26,9 +26,14 @@ const Jobs = () => {
                 <div className="grid grid-cols-3 gap-4">
                   {
                   allJobs.map((job) => (
-                    <div key={job?._id}>
+                    <motion.div 
+                    initial={{ opacity: 0, x: 100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -100 }}
+                    transition={{ duration: 0.3 }}
+                    key={job?._id}>
                       <Jobsss job={job} />
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>

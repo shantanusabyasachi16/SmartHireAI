@@ -8,6 +8,7 @@ const jobSlice = createSlice({
     singleJob: null,
     searchJobByText: "", // This is the filter text
     allApliedjobs: [],
+    searchquery:"",
   },
   reducers: {
     setAlljobs: (state, action) => {
@@ -25,9 +26,13 @@ const jobSlice = createSlice({
     setallApliedjobs: (state, action) => {
       state.allApliedjobs = action.payload;//to update the allthe applied jobs in userprofile
     },
+    setsearchquery :(state, action)=>{
+      state.searchquery = action.payload
+
+    }
   },
 });
 
-export const { setAlljobs, setsingleJob, setallAdminjobs, setsearchJobByText,setallApliedjobs } =
+export const { setAlljobs, setsingleJob, setallAdminjobs, setsearchJobByText,setallApliedjobs,setsearchquery } =
   jobSlice.actions;
 export default jobSlice.reducer;

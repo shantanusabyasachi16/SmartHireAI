@@ -23,6 +23,7 @@
     "clsx": "^2.1.1",
     "datauri": "^4.1.0",
     "embla-carousel-react": "^8.1.8",
+    "framer-motion": "^11.3.24",
     "lucide-react": "^0.417.0",
     "next-themes": "^0.3.0",
     "react": "^18.3.1",

@@ -5,7 +5,7 @@ import { RadioGroup } from "../ui/radio-group";
 import { Button } from "../ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import { USER_API_END_POINT } from "@/utils/endpoint";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,7 +19,7 @@ const Login = () => {
     role: "",
   });
   const navigate = useNavigate();
-const {loading} =useSelector(store=>store.auth);
+const {loading,user} =useSelector(store=>store.auth);
   const dispatch = useDispatch();
 
   const changeEventHandler = (e) => {
@@ -54,6 +54,11 @@ const {loading} =useSelector(store=>store.auth);
       dispatch(setLoading(false))
     }
   };
+  useEffect(()=>{
+    if(user){
+        navigate("/");
+    }
+},[])
 
   return (
     <div>
