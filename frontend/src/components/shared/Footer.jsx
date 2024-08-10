@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-// Define icon components
+
 function FacebookIcon(props) {
   return (
     <svg
@@ -123,16 +124,20 @@ function XIcon(props) {
 export default function Footer() {
   return (
     <footer className="bg-muted py-8 md:py-12 w-full">
-      <div className="container max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-sm">
+      <div className="container max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
         <div className="flex flex-col items-start gap-4">
           <div className="flex items-center gap-2">
             <MountainIcon className="w-6 h-6" />
-            <span className="font-bold text-lg text-[#4b0082] cursor-pointer">SmartHireAI</span>
+            <span className="font-bold text-lg text-[#4b0082] cursor-pointer">
+              SmartHireAI
+            </span>
           </div>
-          <p className="text-muted-foreground">Empowering businesses with intelligent hiring solutions.</p>
+          <p className="text-muted-foreground">
+            Empowering businesses with intelligent hiring solutions.
+          </p>
         </div>
-        <div className="flex flex-col items-start gap-4">
-          <h3 className="font-semibold text-lg ">Follow us on social media</h3>
+        <div className="flex flex-col items-center gap-4">
+          <h3 className="font-semibold text-lg">Follow us on social media</h3>
           <div className="flex items-center gap-4">
             <Link to="#" aria-label="Facebook">
               <FacebookIcon className="w-5 h-5 hover:text-blue-600" />
@@ -148,24 +153,39 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-        <div className="flex flex-col items-start gap-4">
-          <h3 className="font-semibold text-lg ">About Us</h3>
-          <div className="flex flex-col gap-2">
-            <Link to="#" className=" font-medium text-black hover:text-[#4b0082] ">
+        <div className="flex flex-col items-end gap-4">
+          <h3 className="font-semibold text-lg">About Us</h3>
+          <div className="flex flex-col gap-2 items-end">
+            <Link to="#" className="font-medium text-black hover:text-[#4b0082]">
               Our Story
             </Link>
             <Link to="#" className="font-medium text-black hover:text-[#4b0082]">
               Our Team
             </Link>
-            <Link to="#" className="font-medium  text-black hover:text-[#4b0082]">
+            <Link to="#" className="font-medium text-black hover:text-[#4b0082]">
               Careers
             </Link>
           </div>
         </div>
       </div>
-      <div className="container max-w-7xl mt-8 flex flex-col items-center text-xs text-muted-foreground">
+      <div className="container max-w-7xl mt-8 flex justify-center text-xs text-muted-foreground">
         <p className="text-center">&copy; 2024 SmartHireAI&trade; All rights reserved.</p>
       </div>
     </footer>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
