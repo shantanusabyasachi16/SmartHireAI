@@ -8,11 +8,13 @@ import React, { useState } from "react";
 import AppliedJobTable from "./AppliedJobTable";
 import UpdateProfile from "./UpdateProfile";
 import { useSelector } from "react-redux";
+import useGetAllappliedjobs from "@/hooks/useGetAllappliedjobs";
 
 //const Skills = ["java", "javascript", "python","DevOps"];
 
 const isresume = true;
 const Profile = () => {
+  useGetAllappliedjobs();//to display all applied jobs of user
   const [open, setopen] = useState(false);
   const {user} = useSelector(store=>store.auth);
   return (
@@ -60,7 +62,7 @@ const Profile = () => {
         </div>
       </div>
       <div className=" max-w-4xl mx-auto bg-white rounded-2xl">
-        <h1 className="font-bold text-lg my-8"> Apllied Jobs</h1>
+        <h1 className="font-bold text-lg my-8"> Applied Jobs</h1>
         <AppliedJobTable />
 
       </div>
