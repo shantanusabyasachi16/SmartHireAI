@@ -110,7 +110,7 @@ try {
               <Label>Experience Level</Label>
               <Input
                 type="text"
-                name="experience"
+                name="number"
                 value={input.experience}
                 onChange={changeEventHandler}
                 className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1"

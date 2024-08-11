@@ -132,8 +132,21 @@ const Signup = () => {
            
           </div>
           {
-          loading ?<Button className='w-full my-4'> <Loader2 className="mr-2 h-4 w-4 animate-spin"/>Please wait</Button>:<Button type="submit" className="w-full my-4">Signup</Button>
-         }
+  loading ? (
+    <Button className="w-full my-4 bg-gray-700 text-gray-200 border-none hover:bg-gray-600">
+      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+      Please wait
+    </Button>
+  ) : (
+    <Button 
+      type="submit" 
+      className="w-full my-4 bg-gray-800 text-white border-none hover:bg-gray-700 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
+    >
+      Signup
+    </Button>
+  )
+}
+
           <span className="text-sm">Already have an account?<Link to="/login" className=" font-medium text-blue-700">Login</Link></span>
         </form>
       </div>

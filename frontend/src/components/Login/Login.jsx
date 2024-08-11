@@ -118,9 +118,19 @@ const {loading,user} =useSelector(store=>store.auth);
               </div>
             </RadioGroup>
           </div>
-         {
-          loading ?<Button className='w-full my-4'> <Loader2 className="mr-2 h-4 w-4 animate-spin"/>Please wait</Button>:<Button type="submit" className="w-full my-4">Login</Button>
-         }
+          {
+  loading ? (
+    <Button className="w-full my-4 bg-gray-700 text-gray-200 border-none hover:bg-gray-600">
+      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+      Please wait
+    </Button>
+  ) : (
+    <Button type="submit" className="w-full my-4 bg-gray-800 text-white border-none hover:bg-gray-700">
+      Login
+    </Button>
+  )
+}
+
         
           <span className="text-sm">Don't have an account?<Link to="/signup" className=" font-medium text-blue-700">Signup</Link></span>
         </form>

@@ -31,7 +31,7 @@ const Adminjobs = () => {
           />
           <Button onClick={()=>navigate("/admin/jobs/create")}>Post New Jobs</Button>
         </div>
-        <AdminJobTable/>``
+        <AdminJobTable/>
 
       </div>
       </div>
