@@ -33,21 +33,21 @@ const FilterCards = () => {
   }, [selectedvalue, dispatch]);
 
   return (
-    <div className='w-full bg-white p-3 rounded-md'>
-      <h1 className='font-bold text-lg'>FilterJobs</h1>
-      <hr className='mt-3' />
+    <div className='w-full bg-white dark:bg-gray-800 p-3 rounded-md border border-gray-200 dark:border-gray-600'>
+      <h1 className='font-bold text-lg text-gray-900 dark:text-gray-100'>Filter Jobs</h1>
+      <hr className='mt-3 border-gray-300 dark:border-gray-700' />
       <RadioGroup value={selectedvalue} onValueChange={ChangeHandler}>
         {
           filterdata.map((data, index) => (
             <div key={index}>
-              <h1 className='font-bold text-lg'>{data.filtertype}</h1>
+              <h1 className='font-bold text-lg text-gray-900 dark:text-gray-100'>{data.filtertype}</h1>
               {
                 data.array.map((item, idx) => {
                   const itemid = `r${index}-${idx}`; // Unique ID
                   return (
-                    <div className='flex items-center space-x-2 my-2' key={idx}>
+                    <div className='flex items-center space-x-2 my-2' key={itemid}>
                       <RadioGroupItem value={item} id={itemid} />
-                      <Label htmlFor={itemid}>{item}</Label>
+                      <Label htmlFor={itemid} className='text-gray-900 dark:text-gray-100'>{item}</Label>
                     </div>
                   )
                 })

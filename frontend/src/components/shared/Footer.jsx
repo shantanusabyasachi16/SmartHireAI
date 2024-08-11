@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
 function FacebookIcon(props) {
   return (
     <svg
@@ -123,69 +122,57 @@ function XIcon(props) {
 
 export default function Footer() {
   return (
-    <footer className="bg-muted py-8 md:py-12 w-full">
+    <footer className="bg-[#3e1f5f] py-8 md:py-12 w-full text-gray-300 dark:bg-[#2a1a40] dark:text-gray-400">
       <div className="container max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
         <div className="flex flex-col items-start gap-4">
           <div className="flex items-center gap-2">
-            <MountainIcon className="w-6 h-6" />
-            <span className="font-bold text-lg text-[#4b0082] cursor-pointer">
-              SmartHireAI
-            </span>
+            <MountainIcon className="w-6 h-6 text-purple-500 dark:text-purple-400" />
+            <h1 className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#8a2be2] to-[#dda0dd] dark:from-[#6a1b9a] dark:to-[#d6a7e5] shadow-lg">
+              SmartHire
+              <span className="ml-1 bg-clip-text text-transparent bg-gradient-to-r from-[#dda0dd] to-[#8a2be2] dark:from-[#d6a7e5] dark:to-[#6a1b9a]">
+                AI
+              </span>
+            </h1>
           </div>
-          <p className="text-muted-foreground">
+          <p className="bg-clip-text text-transparent bg-gradient-to-r from-[#a64d79] to-[#dda0dd] dark:from-[#80558c] dark:to-[#d6a7e5] text-xm font-medium shadow-sm">
             Empowering businesses with intelligent hiring solutions.
           </p>
         </div>
         <div className="flex flex-col items-center gap-4">
-          <h3 className="font-semibold text-lg">Follow us on social media</h3>
+          <h3 className="font-semibold text-lg text-purple-600 dark:text-purple-300">Follow us on social media</h3>
           <div className="flex items-center gap-4">
             <Link to="#" aria-label="Facebook">
-              <FacebookIcon className="w-5 h-5 hover:text-blue-600" />
+              <FacebookIcon className="w-5 h-5 text-gray-400 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400" />
             </Link>
             <Link to="#" aria-label="Instagram">
-              <InstagramIcon className="w-5 h-5 hover:text-pink-600" />
+              <InstagramIcon className="w-5 h-5 text-gray-400 hover:text-pink-500 dark:text-gray-300 dark:hover:text-pink-400" />
             </Link>
             <Link to="#" aria-label="Twitter">
-              <TwitterIcon className="w-5 h-5 hover:text-blue-400" />
+              <TwitterIcon className="w-5 h-5 text-gray-400 hover:text-blue-400 dark:text-gray-300 dark:hover:text-blue-300" />
             </Link>
             <Link to="#" aria-label="LinkedIn">
-              <LinkedinIcon className="w-5 h-5 hover:text-blue-700" />
+              <LinkedinIcon className="w-5 h-5 text-gray-400 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-500" />
             </Link>
           </div>
         </div>
         <div className="flex flex-col items-end gap-4">
-          <h3 className="font-semibold text-lg">About Us</h3>
+          <h3 className="font-semibold text-lg text-purple-600 dark:text-purple-300">About Us</h3>
           <div className="flex flex-col gap-2 items-end">
-            <Link to="#" className="font-medium text-black hover:text-[#4b0082]">
+            <Link to="#" className="font-medium text-purple-400 hover:text-purple-200 dark:text-purple-300 dark:hover:text-purple-100">
               Our Story
             </Link>
-            <Link to="#" className="font-medium text-black hover:text-[#4b0082]">
+            <Link to="#" className="font-medium text-purple-400 hover:text-purple-200 dark:text-purple-300 dark:hover:text-purple-100">
               Our Team
             </Link>
-            <Link to="#" className="font-medium text-black hover:text-[#4b0082]">
+            <Link to="#" className="font-medium text-purple-400 hover:text-purple-200 dark:text-purple-300 dark:hover:text-purple-100">
               Careers
             </Link>
           </div>
         </div>
       </div>
-      <div className="container max-w-7xl mt-8 flex justify-center text-xs text-muted-foreground">
+      <div className="container max-w-7xl mt-8 flex justify-center text-xs text-gray-400 dark:text-gray-500">
         <p className="text-center">&copy; 2024 SmartHireAI&trade; All rights reserved.</p>
       </div>
     </footer>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

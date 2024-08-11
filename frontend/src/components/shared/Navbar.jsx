@@ -33,35 +33,71 @@ const Navbar = () => {
   };
 
   return (
-    <div className={`bg-white dark:bg-gray-800`}>
+    <div
+      className={`${
+        theme === "dark" ? "bg-gray-800" : "bg-white"
+      } transition-colors duration-300`}
+    >
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16">
         <div>
-          <h1 className="text-2xl font-bold text-black dark:text-white">
-            SmartHire<span className="text-[#50B498]">AI</span>
+          <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#6a0dad] via-[#d6a7e5] to-[#4b0082] dark:from-[#d6a7e5] dark:via-[#6a1b9a] dark:to-[#4b0082]">
+            SmartHire
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d6a7e5] to-[#6a0dad] dark:from-[#d6a7e5] dark:to-[#6a1b9a]">
+              AI
+            </span>
           </h1>
         </div>
         <div className="flex items-center gap-20">
-          <ul className="flex font-medium items-center gap-10 text-black dark:text-white">
+          <ul
+            className={`flex font-medium items-center gap-10 ${
+              theme === "dark" ? "text-white" : "text-black"
+            }`}
+          >
             {user ? (
               user.role === "recruiter" ? (
                 <>
                   <li>
-                    <Link to="/admin/companies">Company</Link>
+                    <Link
+                      to="/admin/companies"
+                      className="text-[#6f597a]"
+                    >
+                      Company
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/admin/jobs">Jobs</Link>
+                    <Link
+                      to="/admin/jobs"
+                      className="text-[#6f597a]"
+                    >
+                      Jobs
+                    </Link>
                   </li>
                 </>
               ) : (
                 <>
                   <li>
-                    <Link to="/">Home</Link>
+                    <Link
+                      to="/"
+                      className="text-[#6f597a]"
+                    >
+                      Home
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/jobs">Jobs</Link>
+                    <Link
+                      to="/jobs"
+                      className="text-[#6f597a]"
+                    >
+                      Jobs
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/explore">Explore</Link>
+                    <Link
+                      to="/explore"
+                      className="text-[#6f597a]"
+                    >
+                      Explore
+                    </Link>
                   </li>
                 </>
               )
@@ -71,10 +107,15 @@ const Navbar = () => {
             {!user ? (
               <div className="flex gap-2">
                 <Link to="/login">
-                  <Button variant="outline">Login</Button>
+                  <Button
+                    variant="outline"
+                    className="text-purple-600 border-purple-600 bg-transparent hover:bg-purple-100 hover:text-purple-800 dark:text-white dark:border-purple-300 dark:bg-purple-600 dark:hover:bg-purple-700"
+                  >
+                    Login
+                  </Button>
                 </Link>
                 <Link to="/signup">
-                  <Button className="bg-[#50B498] hover:bg-[#468585]">
+                  <Button className="bg-purple-600 text-white hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 button-animate">
                     Signup
                   </Button>
                 </Link>
@@ -104,7 +145,11 @@ const Navbar = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="flex flex-col my-2 text-gray-600 dark:text-gray-200">
+                  <div
+                    className={`flex flex-col my-2 ${
+                      theme === "dark" ? "text-gray-200" : "text-gray-600"
+                    }`}
+                  >
                     {user.role === "student" && (
                       <div className="flex items-center my-2 gap-2 cursor-pointer">
                         <User2 />
@@ -126,7 +171,7 @@ const Navbar = () => {
             <Button
               variant="outline"
               onClick={toggleTheme}
-              className="p-2 rounded-full"
+              className="p-2 rounded-full ml-2"
             >
               {theme === "dark" ? <Sun /> : <Moon />}
             </Button>
