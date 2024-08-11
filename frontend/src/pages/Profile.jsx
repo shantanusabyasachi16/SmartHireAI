@@ -10,7 +10,7 @@ import UpdateProfile from "./UpdateProfile";
 import { useSelector } from "react-redux";
 import useGetAllappliedjobs from "@/hooks/useGetAllappliedjobs";
 
-//const Skills = ["java", "javascript", "python","DevOps"];
+
 
 const isresume = true;
 const Profile = () => {
@@ -24,7 +24,10 @@ const Profile = () => {
         <div className=" flex justify-between">
           <div className="flex items-center gap-4">
             <Avatar className="h-24 w-24">
-              <AvatarImage src="https://i.pinimg.com/originals/09/2f/7b/092f7b121aaabf4449aee3555b0f26a2.png" />
+            <AvatarImage
+                    src={user?.profile?.profilePhoto}
+                    alt="@shadcn"
+                  />
             </Avatar>
             <div>
               <h1 className="font-medium text-xl"> {user?.fullname}</h1>

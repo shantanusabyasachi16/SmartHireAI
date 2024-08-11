@@ -78,7 +78,7 @@ const Signup = () => {
           onSubmit={SubmitHandler}
           className=" w-1/2 border border-gray-200 rounded-md p-4 my-10"
         >
-          <h1 className=" font-bold text-xl mb-6">Create your TalentLink profile</h1>
+          <h1 className=" font-bold text-xl mb-6">Create your SmartHireAI profile</h1>
           <div className="my-2">
             <Label>Full Name</Label>
             <Input type="text" value={input.fullname} name="fullname" onChange={changeEventHandler} placeholder="What is you name?" />

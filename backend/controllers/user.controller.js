@@ -156,7 +156,7 @@ export const updateProfile = async (req, res) => {
         // updating data
         if(fullname) user.fullname = fullname
         if(email) user.email = email
-        if(phoneNumber)  user.phoneNumber = phoneNumber
+        if(phonenumber)  user.phonenumber = phonenumber
         if(bio) user.profile.bio = bio
         if(skills) user.profile.skills = skillsArray
       
@@ -174,7 +174,7 @@ export const updateProfile = async (req, res) => {
             _id: user._id,
             fullname: user.fullname,
             email: user.email,
-            phoneNumber: user.phoneNumber,
+            phonenumber: user.phonenumber,
             role: user.role,
             profile: user.profile
         }
