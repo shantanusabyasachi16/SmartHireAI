@@ -44,7 +44,7 @@ return company?.name?.toLowerCase().includes(searchCompanyByText.toLowerCase())
   return (
     <div>
       <Table>
-        <TableCaption>List Of your applied jobs</TableCaption>
+        <TableCaption>List Of your applied Companies</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead>Logo</TableHead>

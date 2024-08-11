@@ -38,10 +38,10 @@ const AppliedJobTable = () => {
                   <Badge
                     className={`${
                       appliedjob?.status == "rejected"
-                        ? "text-red-500"
+                        ? "text-red-700"
                         : appliedjob.status == "pending"
                         ? "text-gray-400"
-                        : "bg-green-500"
+                        : "bg-green-500 animate-pulse"
                     }`}
                   >
                     {appliedjob.status.toUpperCase()}

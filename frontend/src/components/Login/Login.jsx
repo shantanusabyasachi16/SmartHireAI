@@ -68,9 +68,9 @@ const {loading,user} =useSelector(store=>store.auth);
           onSubmit={SubmitHandler}
           className="w-1/2 border border-gray-200 rounded-md p-4 my-10"
         >
-          <h1 className="font-bold text-xl mb-5">Login</h1>
+          <h1 className="font-bold text-xl mb-5 ">Login</h1>
 
-          <div className="my-2">
+          <div className="my-4 ">
             <Label>Email</Label>
             <Input
               type="email"
@@ -132,7 +132,7 @@ const {loading,user} =useSelector(store=>store.auth);
 }
 
         
-          <span className="text-sm">Don't have an account?<Link to="/signup" className=" font-medium text-blue-700">Signup</Link></span>
+          <span className="text-sm">Don't have an account? <Link to="/signup" className=" font-medium text-blue-700">Signup</Link></span>
         </form>
       </div>
     </div>

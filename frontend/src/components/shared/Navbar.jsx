@@ -40,7 +40,7 @@ const Navbar = () => {
     >
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16">
         <div>
-          <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#6a0dad] via-[#d6a7e5] to-[#4b0082] dark:from-[#d6a7e5] dark:via-[#6a1b9a] dark:to-[#4b0082]">
+          <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#6a0dad] via-[#d6a7e5] to-[#4b0082] dark:from-[#d6a7e5] dark:via-[#6a1b9a] dark:to-[#4b0082]   animate-pulse">
             SmartHire
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d6a7e5] to-[#6a0dad] dark:from-[#d6a7e5] dark:to-[#6a1b9a]">
               AI

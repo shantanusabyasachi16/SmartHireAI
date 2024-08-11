@@ -63,10 +63,7 @@ const AdminJobTable = () => {
                   <PopoverContent className="w-32">
                     <div
                       onClick={() => navigate(`/admin/companies/${job._id}`)}
-                      className="flex items-center gap-2 w-fit cursor-pointer"
-                    >
-                      <Edit2 />
-                      <span className="w-4">Edit</span>
+                      className="flex items-center gap-2 w-fit cursor-pointer" > 
                     </div>
                     <div className=" flex items-center w-fit gap-2 cursor-pointer mt-2" >
                       <Eye/>

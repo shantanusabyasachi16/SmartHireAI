@@ -24,7 +24,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.3 }}
-          className="mx-auto px-4 py-2 rounded-full font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#ff007a] to-[#00d2ff] neon-text"
+          className="mx-auto px-4 py-2 rounded-full font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#ff007a] to-[#00d2ff] neon-text animate-pulse"
         >
           INDIA'S #1 JOB PLATFORM
         </motion.span>

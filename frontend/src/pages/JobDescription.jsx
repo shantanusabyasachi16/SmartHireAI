@@ -12,10 +12,10 @@ const JobDescription = () => {
   const { singleJob } = useSelector((store) => store.job);
   const { user } = useSelector((store) => store.auth);
 
-  // Check if the user has applied for the job
-  const isApplied = singleJob?.applications?.some(
-    (application) => application.applicant === user?._id
-  ) || false;
+  const isApplied =
+    singleJob?.applications?.some(
+      (application) => application.applicant === user?._id
+    ) || false;
 
   const [applied, setApplied] = useState(isApplied);
 
@@ -30,31 +30,32 @@ const JobDescription = () => {
         { withCredentials: true }
       );
       if (res.data.success) {
-        setApplied(true); // Update local state
+        setApplied(true);
         const updateSingleJob = {
           ...singleJob,
           applications: [...singleJob.applications, { applicant: user?._id }],
-        }; // Update total applicants
-        dispatch(setsingleJob(updateSingleJob)); // Real-time update
+        };
+        dispatch(setsingleJob(updateSingleJob));
         toast.success(res.data.message);
       }
     } catch (error) {
-      toast.error(error.response?.data?.message || 'An error occurred');
+      toast.error(error.response?.data?.message || "An error occurred");
     }
   };
 
   useEffect(() => {
     const fetchSingleJob = async () => {
       try {
-        const res = await axios.get(
-          `${JOB_API_END_POINT}/get/${jobId}`,
-          { withCredentials: true }
-        );
+        const res = await axios.get(`${JOB_API_END_POINT}/get/${jobId}`, {
+          withCredentials: true,
+        });
         if (res.data.success) {
           dispatch(setsingleJob(res.data.job));
-          setApplied(res.data.job.applications.some(
-            (application) => application.applicant === user?._id
-          ));
+          setApplied(
+            res.data.job.applications.some(
+              (application) => application.applicant === user?._id
+            )
+          );
         }
       } catch (error) {
         console.log(error);
@@ -64,20 +65,20 @@ const JobDescription = () => {
   }, [jobId, dispatch, user?._id]);
 
   return (
-    <div className="max-w-7xl mx-auto my-10">
+    <div className="max-w-7xl mx-auto my-10 animate-fadeIn">
       <div className="flex items-center justify-between">
-        <div>
+        <div className="animate-slideInLeft">
           <h1 className="font-bold text-xl text-gray-900 dark:text-gray-100">
             {singleJob?.title}
           </h1>
           <div className="flex items-center gap-2 mt-4">
-            <Badge className="text-blue-700 dark:text-blue-400 font-bold" variant="ghost">
+            <Badge className="text-blue-700 dark:text-blue-400 font-bold animate-bounce" variant="ghost">
               {singleJob?.position}
             </Badge>
-            <Badge className="text-[#821536] dark:text-[#e57373] font-bold" variant="ghost">
+            <Badge className="text-[#821536] dark:text-[#e57373] font-bold animate-bounce" variant="ghost">
               {singleJob?.jobType}
             </Badge>
-            <Badge className="text-[#621a9e] dark:text-[#9575cd] font-bold" variant="ghost">
+            <Badge className="text-[#621a9e] dark:text-[#9575cd] font-bold animate-bounce" variant="ghost">
               {singleJob?.salary} LPA
             </Badge>
           </div>
@@ -85,15 +86,19 @@ const JobDescription = () => {
         <Button
           onClick={isApplied ? null : jobApply}
           disabled={isApplied}
-          className={`rounded-full ${isApplied ? "bg-blue-900 cursor-not-allowed" : "bg-[#660e60] hover:bg-[#5a1765]"} text-white`}
+          className={`rounded-full ${
+            isApplied
+              ? "bg-blue-900 cursor-not-allowed animate-pulse"
+              : "bg-[#660e60] hover:bg-[#5a1765] text-white animate-scaleIn"
+          }`}
         >
           {isApplied ? "Already Applied" : "Apply Now"}
         </Button>
       </div>
-      <h1 className="border-b-2 border-b-gray-300 dark:border-b-gray-700 font-medium py-4">
+      <h1 className="border-b-2 border-b-gray-300 dark:border-b-gray-700 font-medium py-4 animate-slideInLeft">
         Job Description
       </h1>
-      <div className="text-gray-900 dark:text-gray-100">
+      <div className="text-gray-900 dark:text-gray-100 animate-fadeIn">
         <h1 className="font-bold my-1">
           Role: <span className="pl-4 font-normal">{singleJob?.title}</span>
         </h1>
