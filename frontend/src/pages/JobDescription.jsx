@@ -79,13 +79,22 @@ const JobDescription = () => {
             {singleJob?.title}
           </h1>
           <div className="flex items-center gap-2 mt-4">
-            <Badge className="text-blue-700 dark:text-blue-400 font-bold animate-bounce" variant="ghost">
+            <Badge
+              className="text-blue-700 dark:text-blue-400 font-bold animate-bounce"
+              variant="ghost"
+            >
               {singleJob?.position}
             </Badge>
-            <Badge className="text-[#821536] dark:text-[#e57373] font-bold animate-bounce" variant="ghost">
+            <Badge
+              className="text-[#821536] dark:text-[#e57373] font-bold animate-bounce"
+              variant="ghost"
+            >
               {singleJob?.jobType}
             </Badge>
-            <Badge className="text-[#621a9e] dark:text-[#9575cd] font-bold animate-bounce" variant="ghost">
+            <Badge
+              className="text-[#621a9e] dark:text-[#9575cd] font-bold animate-bounce"
+              variant="ghost"
+            >
               {singleJob?.salary} LPA
             </Badge>
           </div>
@@ -95,9 +104,9 @@ const JobDescription = () => {
           disabled={isApplied}
           className={`rounded-full ${
             isApplied
-              ? "bg-blue-900 cursor-not-allowed animate-pulse"
-              : "bg-[#660e60] hover:bg-[#5a1765] text-white animate-scaleIn"
-          }`}
+              ? "bg-gradient-to-r from-gray-600 to-gray-400 cursor-not-allowed animate-pulse"
+              : "bg-gradient-to-r from-purple-600 to-purple-400 hover:from-purple-700 hover:to-purple-500  text-white "
+          } transition-all duration-200`}
         >
           {isApplied ? "Already Applied" : "Apply Now"}
         </Button>
@@ -110,22 +119,32 @@ const JobDescription = () => {
           Role: <span className="pl-4 font-normal">{singleJob?.title}</span>
         </h1>
         <h1 className="font-bold my-1">
-          Location: <span className="pl-4 font-normal">{singleJob?.location}</span>
+          Location:{" "}
+          <span className="pl-4 font-normal">{singleJob?.location}</span>
         </h1>
         <h1 className="font-bold my-1">
-          Description: <span className="pl-4 font-normal">{singleJob?.description}</span>
+          Description:{" "}
+          <span className="pl-4 font-normal">{singleJob?.description}</span>
         </h1>
         <h1 className="font-bold my-1">
-          Experience: <span className="pl-4 font-normal">{singleJob?.experience} yrs</span>
+          Experience:{" "}
+          <span className="pl-4 font-normal">{singleJob?.experience} yrs</span>
         </h1>
         <h1 className="font-bold my-1">
-          Salary: <span className="pl-4 font-normal">{singleJob?.salary} LPA</span>
+          Salary:{" "}
+          <span className="pl-4 font-normal">{singleJob?.salary} LPA</span>
         </h1>
         <h1 className="font-bold my-1">
-          Total Applicants: <span className="pl-4 font-normal">{singleJob?.applications?.length}</span>
+          Total Applicants:{" "}
+          <span className="pl-4 font-normal">
+            {singleJob?.applications?.length}
+          </span>
         </h1>
         <h1 className="font-bold my-1">
-          Posted Date: <span className="pl-4 font-normal">{singleJob?.createdAt.split("T")[0]}</span>
+          Posted Date:{" "}
+          <span className="pl-4 font-normal">
+            {singleJob?.createdAt.split("T")[0]}
+          </span>
         </h1>
       </div>
 
@@ -136,9 +155,10 @@ const JobDescription = () => {
             <h2 className="font-bold text-lg">Cover Letter</h2>
             <Button
               onClick={() => navigate("/generatecoverletter")}
-              className="bg-[#660e60] hover:bg-[#5a1765] text-white"
+              className="bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white rounded-full py-2 px-4 flex items-center gap-2 transition-all duration-300"
             >
-              Generate from AI <Sparkles />
+              Generate from AI
+              <Sparkles className="animate-glow" />
             </Button>
           </div>
           <textarea

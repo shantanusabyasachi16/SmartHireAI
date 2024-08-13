@@ -21,9 +21,9 @@ const initialPrompt = `You are a Cover letter generator, you need to generate co
 
 Generate a professional cover letter for a job seeker applying for the position of [JOB TITLE] at [COMPANY NAME]. Use the following details:
 
-Job seeker's name: [NAME]
-Job seeker's key skills: [SKILL 1], [SKILL 2], [SKILL 3]
-Job seeker's years of experience: [YEARS]
+Job seeker's name: NAME
+Job seeker's key skills: SKILL 1, SKILL 2, SKILL 3
+Job seeker's years of experience: YEARS
 
 The cover letter should:
 1. Be addressed to the hiring manager

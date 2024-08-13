@@ -65,7 +65,8 @@ const Jobsss = ({ job }) => {
         <Button
           onClick={() => navigate(`/description/${job?._id}`)}
           variant="outline"
-          className="text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200"
+          className="bg-gradient-to-r from-indigo-600 to-indigo-400 text-white dark:from-indigo-800 dark:to-indigo-600 hover:from-indigo-700 hover:to-indigo-500 dark:hover:from-indigo-700 dark:hover:to-indigo-500 transition-all duration-200 font-bold"
+
         >
           Details
         </Button>

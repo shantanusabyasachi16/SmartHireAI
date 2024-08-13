@@ -42,10 +42,11 @@ const GenerateCoverLetter = () => {
       />
       <Button
         onClick={generateCoverLetter}
-        className="mt-4 bg-[#660e60] hover:bg-[#5a1765] text-white"
+        className="mt-4 bg-gradient-to-r from-blue-800 to-blue-500 hover:from-blue-900 hover:to-blue-600 text-white transition-all duration-300"
       >
         Generate Cover Letter
       </Button>
+
       {coverLetter && (
         <div className="mt-6">
           <h2 className="font-bold text-xl mb-2">Generated Cover Letter:</h2>
@@ -57,7 +58,7 @@ const GenerateCoverLetter = () => {
           />
           <Button
             onClick={copyToClipboard}
-            className="mt-4 bg-blue-900 text-white"
+            className="mt-4 bg-gradient-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600 text-white transition-all duration-300"
           >
             Copy to Clipboard
           </Button>
