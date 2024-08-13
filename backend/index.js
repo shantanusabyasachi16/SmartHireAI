@@ -7,10 +7,13 @@ import userRoute from './routes/user.routes.js';
 import companyRoute from './routes/company.routes.js';
 import jobRoutes from './routes/job.routes.js';
 import applicationRoutes from './routes/application.routes.js';
+import geminiPromptroutes from './routes/geminiPromptroutes.js'
+
 
 dotenv.config();
 
 const app = express();
+
 
 // Middleware
 app.use(express.json());
@@ -28,8 +31,12 @@ app.use('/api/v1/user', userRoute);
 app.use('/api/v1/company', companyRoute);
 app.use('/api/v1/job', jobRoutes);
 app.use('/api/v1/application', applicationRoutes);
+app.use('/api',geminiPromptroutes );
+
 
 const PORT = process.env.PORT || 3000;
+
+import  ("./geminiApi.js")
 
 app.listen(PORT, () => {
   connectDB();
