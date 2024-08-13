@@ -16,6 +16,7 @@ import AdminJobs from './adminPages/Adminjobs';
 import PostNewJob from './adminPages/PostNewJob';
 import Applicants from './adminPages/Applicants';
 import ProtectedRoute from './adminPages/Protected Route';
+import GenerateCoverLetter from './pages/GenerateCoverLetter';
 
 const appRouter = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const appRouter = createBrowserRouter([
   {
     path: '/description/:id',
     element: <JobDescription />,
+  },
+  {
+    path: '/generatecoverletter',
+    element: <GenerateCoverLetter/>,
   },
   {
     path: '/explore',

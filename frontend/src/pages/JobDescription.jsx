@@ -3,12 +3,14 @@ import { Button } from "@/components/ui/button";
 import { setsingleJob } from "@/redux/jobSlice";
 import { APPLICATION_API_END_POINT, JOB_API_END_POINT } from "@/utils/endpoint";
 import axios from "axios";
+import { Sparkles } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "sonner";
 
 const JobDescription = () => {
+  const navigate = useNavigate();
   const { singleJob } = useSelector((store) => store.job);
   const { user } = useSelector((store) => store.auth);
 
@@ -18,6 +20,7 @@ const JobDescription = () => {
     ) || false;
 
   const [applied, setApplied] = useState(isApplied);
+  const [coverLetter, setCoverLetter] = useState("");
 
   const params = useParams();
   const jobId = params.id;
@@ -63,6 +66,10 @@ const JobDescription = () => {
     };
     fetchSingleJob();
   }, [jobId, dispatch, user?._id]);
+
+  const generateCoverLetter = () => {
+    setCoverLetter("AI-generated cover letter goes here...");
+  };
 
   return (
     <div className="max-w-7xl mx-auto my-10 animate-fadeIn">
@@ -121,6 +128,28 @@ const JobDescription = () => {
           Posted Date: <span className="pl-4 font-normal">{singleJob?.createdAt.split("T")[0]}</span>
         </h1>
       </div>
+
+      {/* Cover Letter Section */}
+      {!isApplied && (
+        <div className="mt-6">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="font-bold text-lg">Cover Letter</h2>
+            <Button
+              onClick={() => navigate("/generatecoverletter")}
+              className="bg-[#660e60] hover:bg-[#5a1765] text-white"
+            >
+              Generate from AI <Sparkles />
+            </Button>
+          </div>
+          <textarea
+            className="w-full p-4 border border-gray-300 rounded-lg dark:bg-gray-800 dark:text-gray-100"
+            rows="10"
+            value={coverLetter}
+            onChange={(e) => setCoverLetter(e.target.value)}
+            placeholder="Paste or generate your cover letter here..."
+          />
+        </div>
+      )}
     </div>
   );
 };
