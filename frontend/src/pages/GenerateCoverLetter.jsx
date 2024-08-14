@@ -1,27 +1,31 @@
 import React, { useState } from 'react';
-import { Button } from "@/components/ui/button"; // Adjust the path as necessary
+import { Button } from "@/components/ui/button"; 
+import axios from 'axios';
 
 const GenerateCoverLetter = () => {
   const [userInput, setUserInput] = useState('');
   const [coverLetter, setCoverLetter] = useState('');
+  const [loadin ,setloading] = useState(false);
 
-  const generateCoverLetter = () => {
-    // Simulate cover letter generation (replace with actual AI logic if available)
-    const generatedLetter = `
-      Dear Hiring Manager,
-
-      I am excited to apply for the position at your company. My name is [Your Name], and I have experience in [relevant field or skill].
-
-      ${userInput}
-
-      Thank you for considering my application.
-
-      Sincerely,
-      [Your Name]
-    `;
-    setCoverLetter(generatedLetter);
+  const generateCoverLetter = async () => {
+    setloading(true)
+    try {
+      const response = await axios.post('http://localhost:8000/api/ai-generation', { prompt: userInput },{
+        withCredentials:true
+      });
+  
+      if (response.status !== 200) {
+        throw new Error('Failed to generate cover letter');
+      }
+  
+      setCoverLetter(response.data.coverLetter);
+    } catch (error) {
+      console.error('Error generating cover letter:', error);
+      alert('Failed to generate cover letter. Please try again.');
+      setloading(false);
+    }
   };
-
+  
   const copyToClipboard = () => {
     navigator.clipboard.writeText(coverLetter).then(() => {
       alert("Cover letter copied to clipboard!");
