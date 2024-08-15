@@ -67,10 +67,7 @@ const JobDescription = () => {
     fetchSingleJob();
   }, [jobId, dispatch, user?._id]);
 
-  const generateCoverLetter = () => {
-    setCoverLetter("AI-generated cover letter goes here...");
-  };
-
+ 
   return (
     <div className="max-w-7xl mx-auto my-10 animate-fadeIn">
       <div className="flex items-center justify-between">
@@ -164,8 +161,8 @@ const JobDescription = () => {
           <textarea
             className="w-full p-4 border border-gray-300 rounded-lg dark:bg-gray-800 dark:text-gray-100"
             rows="10"
-            value={coverLetter}
-            onChange={(e) => setCoverLetter(e.target.value)}
+       
+            
             placeholder="Paste or generate your cover letter here..."
           />
         </div>

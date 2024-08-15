@@ -11,7 +11,10 @@ const Explore = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(setsearchquery(""));
+        return ()=>{
+            dispatch(setsearchquery(""));
+        }
+        
     }, [dispatch]);
 
     return (
@@ -29,9 +32,11 @@ const Explore = () => {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -100 }}
                     transition={{ duration: 0.3 }} className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
-                        {allJobs.map((job) => (
-                            <Jobsss key={job._id} job={job} />
-                        ))}
+                        {allJobs.map((job) => {
+                            return(
+                            <Jobsss key={job._id} job={job} />)
+                        })
+                        }
                     </motion.div>
                 )}
             </div>

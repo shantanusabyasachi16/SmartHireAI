@@ -17,7 +17,7 @@ const Jobsss = ({ job }) => {
   };
 
   return (
-    <div className="p-5 rounded-lg shadow-md bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 transition-transform duration-300 hover:scale-[1.07] hover:shadow-lg">
+    <div className="p-5 rounded-lg shadow-md bg-white border border-gray-200 dark:bg-gray-900 dark:border-gray-700 transition-transform duration-300 hover:scale-[1.07] hover:shadow-lg">
       <div className="flex items-center justify-between mb-3">
         <p className="text-xs text-gray-600 dark:text-gray-300">
           {days(job?.createdAt) === 0 ? "Today" : `${days(job?.createdAt)} days ago`}

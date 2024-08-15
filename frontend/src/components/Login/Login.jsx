@@ -63,7 +63,7 @@ const {loading,user} =useSelector(store=>store.auth);
   return (
     <div>
       <Navbar />
-      <div className="flex items-center justify-center max-w-7xl mx-auto">
+      <div className="flex items-center justify-center max-w-7xl mx-auto mt-20">
         <form
           onSubmit={SubmitHandler}
           className="w-1/2 border border-gray-200 rounded-md p-4 my-10"

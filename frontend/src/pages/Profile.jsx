@@ -31,7 +31,7 @@ const Profile = () => {
             </Avatar>
             <div>
               <h1 className="font-medium text-xl text-gray-900 dark:text-gray-100">{user?.fullname}</h1>
-              <p className="text-gray-700 dark:text-gray-400 truncate max-w-xs" title={user?.profile?.bio}>
+              <p className="text-gray-700 dark:text-gray-500  max-w-xs" title={user?.profile?.bio}>
                 {user?.profile?.bio}
               </p>
             </div>

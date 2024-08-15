@@ -7,11 +7,12 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 const HeroSection = () => {
-  const [query, setquery] = useState("");
+  const [query, setQuery] = useState("");
   const dispatch = useDispatch();
   const Navigate = useNavigate();
 
   const searchhandler = () => {
+    console.log("Query before dispatch:", query);
     dispatch(setsearchquery(query));
     Navigate("/explore");
   };
@@ -49,7 +50,7 @@ const HeroSection = () => {
       <Input
         type="text"
         placeholder="Search your Jobs"
-        onChange={(e) =>setquery(e.target.value)}
+        onChange={(e) =>setQuery(e.target.value)}
         value={query}
         className="outline-none border-none w-full px-4 py-2"
       />

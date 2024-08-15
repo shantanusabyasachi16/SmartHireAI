@@ -1,12 +1,18 @@
 import { Badge } from '@/components/ui/badge'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import {motion} from "framer-motion";
 const LatestJobCard = ({ job }) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   return (
-    <div
+    <motion.div 
+    initial={{ opacity: 0, scale: 0.8 }}
+    animate={{ opacity: 1, scale: 1 }}
+    exit={{ opacity: 0, scale: 0.8 }}
+    transition={{ duration: 0.4, ease: "easeInOut" }}
+    
+    key={job?._id}
       onClick={() => navigate(`/description/${job._id}`)}
       className='p-5 rounded-md shadow-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 cursor-pointer transition-transform duration-500 hover:scale-[1.07] '
     >
@@ -29,7 +35,7 @@ const LatestJobCard = ({ job }) => {
           {job?.salary}
         </Badge>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
