@@ -17,7 +17,7 @@ const Jobsss = ({ job }) => {
   };
 
   return (
-    <div className="p-5 rounded-lg shadow-md bg-white border border-gray-200 dark:bg-gray-900 dark:border-gray-700 transition-transform duration-300 hover:scale-[1.07] hover:shadow-lg">
+    <div className="p-5 rounded-lg shadow-md bg-white border border-gray-200 dark:bg-gray-900 dark:border-gray-700 transition-transform duration-300 hover:scale-105 hover:shadow-lg overflow-x-hidden">
       <div className="flex items-center justify-between mb-3">
         <p className="text-xs text-gray-600 dark:text-gray-300">
           {days(job?.createdAt) === 0 ? "Today" : `${days(job?.createdAt)} days ago`}
@@ -66,7 +66,6 @@ const Jobsss = ({ job }) => {
           onClick={() => navigate(`/description/${job?._id}`)}
           variant="outline"
           className="bg-gradient-to-r from-indigo-600 to-indigo-400 text-white dark:from-indigo-800 dark:to-indigo-600 hover:from-indigo-700 hover:to-indigo-500 dark:hover:from-indigo-700 dark:hover:to-indigo-500 transition-all duration-200 font-bold"
-
         >
           Details
         </Button>
