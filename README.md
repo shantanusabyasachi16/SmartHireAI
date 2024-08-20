@@ -12,8 +12,6 @@ Welcome to **SmartHireAI**, a next-generation job portal built on a powerful MER
 - **Recruiter Experience:** Recruiters can seamlessly post new job openings, review and manage incoming applications, and efficiently handle the hiring process directly on the platform. The intuitive interface allows for easy job posting and application tracking, helping recruiters streamline their workflow and make informed hiring decisions with ease.
 
 ## Tech Stack
-
-- **Frontend:**
   - React.js
   - ShadCN (UI Components)
   - Framer Motion (Animations)
