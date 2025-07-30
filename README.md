@@ -1,4 +1,4 @@
-# SmartHireAI
+
 # SmartHireAI
 
 Welcome to **SmartHireAI**, a next-generation job portal built on a powerful MERN stack, combining the robustness of MongoDB, Express, React.js, and Node.js. It features a polished and modern UI designed with ShadCN and showcases captivating animations powered by Framer Motion. SmartHireAI integrates seamlessly with advanced technologies to provide an exceptional user experience for both recruiters and job seekers.
